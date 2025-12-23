@@ -95,23 +95,24 @@ button {
     height: 420px;
 }
 
-/* COFFRE EN BOIS */
+/* COFFRE CENTRÉ */
 .chest {
     position: absolute;
-    right: 20px;
-    top: 42%;
-    transform: translateY(-50%);
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
     font-size: 5rem;
 }
 
 /* OUTILS AU SOL */
 .tools {
     position: absolute;
-    right: 35px;
+    left: 50%;
     top: 60%;
+    transform: translateX(-50%);
     font-size: 2rem;
     display: flex;
-    gap: 10px;
+    gap: 14px;
 }
 
 /* PERSONNAGE */
@@ -200,8 +201,8 @@ for (let i = 0; i < 80; i++) {
 
         <!-- OUTILS -->
         <div class="tools">
-            🛠️ <!-- pied-de-biche -->
-            🔥 <!-- chalumeau -->
+            🛠️
+            🔥
         </div>
 
     </div>
