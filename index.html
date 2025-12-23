@@ -104,14 +104,14 @@ button {
     font-size: 5rem;
 }
 
-/* OUTILS AUTOUR DU COFFRE */
+/* OUTILS AU SOL */
 .tools {
     position: absolute;
-    right: 35px;
+    right: 40px;
     top: 62%;
     font-size: 2rem;
     display: flex;
-    gap: 14px;
+    gap: 16px;
 }
 
 /* VOLEUR */
@@ -120,29 +120,19 @@ button {
     bottom: 40px;
     right: -80px;
     font-size: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
     animation: escapeLeft 6s infinite linear;
-}
-
-/* SAC */
-.bag {
-    position: relative;
-    font-size: 2.4rem;
 }
 
 /* BILLETS QUI TOMBENT */
 .money {
     position: absolute;
-    left: 8px;
     font-size: 1.4rem;
-    animation: fall 1.8s infinite;
+    animation: fall 1.6s infinite;
 }
 
-.money:nth-child(1) { animation-delay: 0s; }
-.money:nth-child(2) { animation-delay: 0.6s; }
-.money:nth-child(3) { animation-delay: 1.2s; }
+.money:nth-child(2) { animation-delay: 0s; }
+.money:nth-child(3) { animation-delay: 0.5s; }
+.money:nth-child(4) { animation-delay: 1s; }
 
 /* ANIMATIONS */
 @keyframes escapeLeft {
@@ -153,11 +143,11 @@ button {
 @keyframes fall {
     0% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(0, 0);
     }
     100% {
         opacity: 0;
-        transform: translateY(60px);
+        transform: translate(-20px, 70px);
     }
 }
 </style>
@@ -180,8 +170,8 @@ for (let i = 0; i < 80; i++) {
 <div id="login">
     <div class="box">
         <h1>
-            Une vision s’impose à toi.<br>
-            Quelqu'un s'enfuit dans l'ombre...>
+            Une vision traverse le voile…<br>
+           Quelqu'un s'enfuit dans l'ombre...<br>
             Prononce l’incantation.
         </h1>
         <input type="password" id="champ" placeholder="Mot de passe">
@@ -194,20 +184,18 @@ for (let i = 0; i < 80; i++) {
 <div id="animation">
     <div class="scene">
 
-        <!-- VOLEUR QUI S’ENFUIT -->
+        <!-- VOLEUR -->
         <div class="thief">
-            🕵️‍♂️
-            <div class="bag">🎒
-                <div class="money">💸</div>
-                <div class="money">💸</div>
-                <div class="money">💸</div>
-            </div>
+            🦹‍♂️
+            <div class="money">💸</div>
+            <div class="money">💸</div>
+            <div class="money">💸</div>
         </div>
 
         <!-- COFFRE -->
         <div class="safe">🗄️</div>
 
-        <!-- OUTILS -->
+        <!-- PREUVES -->
         <div class="tools">
             🔧 🎭
         </div>
@@ -234,4 +222,3 @@ function retour() {
 
 </body>
 </html>
-
