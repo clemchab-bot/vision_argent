@@ -104,6 +104,22 @@ button {
     font-size: 5rem;
 }
 
+/* COURONNE AU-DESSUS DU COFFRE */
+.crown {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px gold;
+    animation: sparkle 2s infinite alternate;
+}
+@keyframes sparkle {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+    50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+}
+
 /* OUTILS AU SOL */
 .tools {
     position: absolute;
@@ -196,6 +212,9 @@ for (let i = 0; i < 80; i++) {
             <div class="money">💸</div>
         </div>
 
+        <!-- COURONNE -->
+        <div class="crown">👑</div>
+
         <!-- COFFRE -->
         <div class="chest">🧰</div>
 
@@ -227,3 +246,4 @@ function retour() {
 
 </body>
 </html>
+
