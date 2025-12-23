@@ -95,8 +95,8 @@ button {
     height: 420px;
 }
 
-/* COFFRE À DROITE */
-.safe {
+/* COFFRE EN BOIS */
+.chest {
     position: absolute;
     right: 20px;
     top: 45%;
@@ -104,49 +104,43 @@ button {
     font-size: 5rem;
 }
 
-/* PIED-DE-BICHE AU SOL */
-.tools {
-    position: absolute;
-    right: 48px;
-    top: 62%;
-    font-size: 2rem;
-}
-
-/* VOLEUR */
+/* PERSONNAGE */
 .thief {
     position: absolute;
     bottom: 40px;
-    right: -80px;
-    font-size: 3rem;
+    right: -120px;
+    font-size: 4.2rem;
     animation: escapeLeft 6s infinite linear;
 }
 
-/* BILLETS QUI TOMBENT */
+/* SAC D'ARGENT */
+.bag {
+    position: absolute;
+    font-size: 2.5rem;
+    top: 10px;
+    left: -25px;
+}
+
+/* BILLETS */
 .money {
     position: absolute;
     font-size: 1.4rem;
     animation: fall 1.6s infinite;
 }
 
-.money:nth-child(2) { animation-delay: 0s; }
-.money:nth-child(3) { animation-delay: 0.5s; }
-.money:nth-child(4) { animation-delay: 1s; }
+.money:nth-child(3) { animation-delay: 0s; }
+.money:nth-child(4) { animation-delay: 0.5s; }
+.money:nth-child(5) { animation-delay: 1s; }
 
 /* ANIMATIONS */
 @keyframes escapeLeft {
-    0% { right: -80px; }
+    0% { right: -120px; }
     100% { right: 420px; }
 }
 
 @keyframes fall {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-20px, 70px);
-    }
+    0% { opacity: 1; transform: translate(0, 0); }
+    100% { opacity: 0; transform: translate(-30px, 80px); }
 }
 </style>
 </head>
@@ -168,9 +162,9 @@ for (let i = 0; i < 80; i++) {
 <div id="login">
     <div class="box">
         <h1>
-            Une vision s'impose à toi.<br>
-            Quelqu'un s'enfuit dans l'ombre...<br>
-            Prononce l’incantation.
+            Un vision s'impose à toi.<br>
+            Quelqu'un s'enfuit dans l'ombre.<br>
+            Prononce l'incantation.
         </h1>
         <input type="password" id="champ" placeholder="Mot de passe">
         <br>
@@ -182,19 +176,17 @@ for (let i = 0; i < 80; i++) {
 <div id="animation">
     <div class="scene">
 
-        <!-- VOLEUR -->
+        <!-- PERSONNAGE QUI S'ENFUIT -->
         <div class="thief">
-            🦹‍♂️
+            🏃‍♂️
+            <div class="bag">💰</div>
             <div class="money">💸</div>
             <div class="money">💸</div>
             <div class="money">💸</div>
         </div>
 
-        <!-- COFFRE -->
-        <div class="safe">🗄️</div>
-
-        <!-- PIED-DE-BICHE -->
-        <div class="tools">🔧</div>
+        <!-- COFFRE EN BOIS -->
+        <div class="chest">🧰</div>
 
     </div>
 
