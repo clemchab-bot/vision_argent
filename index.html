@@ -88,76 +88,76 @@ button {
     box-shadow: 0 0 20px rgba(255,215,0,0.9);
 }
 
-/* === SCÈNE VOL === */
+/* === SCÈNE === */
 .scene {
     position: relative;
     width: 360px;
     height: 420px;
 }
 
-/* COFFRE */
+/* COFFRE À DROITE */
 .safe {
-    font-size: 5rem;
     position: absolute;
-    left: 50%;
+    right: 20px;
     top: 45%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+    font-size: 5rem;
 }
 
-/* OBJETS AU SOL */
+/* OUTILS AUTOUR DU COFFRE */
 .tools {
     position: absolute;
+    right: 35px;
     top: 62%;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 2rem;
     display: flex;
-    gap: 18px;
+    gap: 14px;
 }
 
 /* VOLEUR */
 .thief {
     position: absolute;
-    bottom: 30px;
-    left: -80px;
+    bottom: 40px;
+    right: -80px;
     font-size: 3rem;
     display: flex;
     align-items: center;
     gap: 6px;
-    animation: escape 6s infinite linear;
+    animation: escapeLeft 6s infinite linear;
 }
 
 /* SAC */
 .bag {
+    position: relative;
     font-size: 2.4rem;
 }
 
-/* BILLETS */
+/* BILLETS QUI TOMBENT */
 .money {
     position: absolute;
+    left: 8px;
     font-size: 1.4rem;
-    animation: fly 2s infinite;
+    animation: fall 1.8s infinite;
 }
 
-/* POSITIONS BILLETS */
-.money:nth-child(1) { animation-delay: 0s; left: 20px; }
-.money:nth-child(2) { animation-delay: 0.6s; left: 0px; }
-.money:nth-child(3) { animation-delay: 1.2s; left: -15px; }
+.money:nth-child(1) { animation-delay: 0s; }
+.money:nth-child(2) { animation-delay: 0.6s; }
+.money:nth-child(3) { animation-delay: 1.2s; }
 
 /* ANIMATIONS */
-@keyframes escape {
-    0% { left: -80px; }
-    100% { left: 420px; }
+@keyframes escapeLeft {
+    0% { right: -80px; }
+    100% { right: 420px; }
 }
 
-@keyframes fly {
+@keyframes fall {
     0% {
         opacity: 1;
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0);
     }
     100% {
         opacity: 0;
-        transform: translateY(-60px) rotate(25deg);
+        transform: translateY(60px);
     }
 }
 </style>
@@ -181,7 +181,7 @@ for (let i = 0; i < 80; i++) {
     <div class="box">
         <h1>
             Une vision s’impose à toi.<br>
-            Quelqu’un s’enfuit dans l’ombre…<br>
+            Quelqu'un s'enfuit dans l'ombre...>
             Prononce l’incantation.
         </h1>
         <input type="password" id="champ" placeholder="Mot de passe">
@@ -194,22 +194,22 @@ for (let i = 0; i < 80; i++) {
 <div id="animation">
     <div class="scene">
 
-        <!-- COFFRE -->
-        <div class="safe">🗄️</div>
-
-        <!-- OBJETS -->
-        <div class="tools">
-            🔧 🎭
-        </div>
-
-        <!-- VOLEUR -->
+        <!-- VOLEUR QUI S’ENFUIT -->
         <div class="thief">
-            🧍‍♂️
+            🕵️‍♂️
             <div class="bag">🎒
                 <div class="money">💸</div>
                 <div class="money">💸</div>
                 <div class="money">💸</div>
             </div>
+        </div>
+
+        <!-- COFFRE -->
+        <div class="safe">🗄️</div>
+
+        <!-- OUTILS -->
+        <div class="tools">
+            🔧 🎭
         </div>
 
     </div>
