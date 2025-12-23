@@ -99,9 +99,19 @@ button {
 .chest {
     position: absolute;
     right: 20px;
-    top: 45%;
+    top: 42%;
     transform: translateY(-50%);
     font-size: 5rem;
+}
+
+/* OUTILS AU SOL */
+.tools {
+    position: absolute;
+    right: 35px;
+    top: 60%;
+    font-size: 2rem;
+    display: flex;
+    gap: 10px;
 }
 
 /* PERSONNAGE */
@@ -162,8 +172,8 @@ for (let i = 0; i < 80; i++) {
 <div id="login">
     <div class="box">
         <h1>
-            Un vision s'impose à toi.<br>
-            Quelqu'un s'enfuit dans l'ombre.<br>
+            Une vision s'impose à toi.<br>
+            Quelqu'un s'enfuit dans l'ombre...<br>
             Prononce l'incantation.
         </h1>
         <input type="password" id="champ" placeholder="Mot de passe">
@@ -185,8 +195,14 @@ for (let i = 0; i < 80; i++) {
             <div class="money">💸</div>
         </div>
 
-        <!-- COFFRE EN BOIS -->
+        <!-- COFFRE -->
         <div class="chest">🧰</div>
+
+        <!-- OUTILS -->
+        <div class="tools">
+            🛠️ <!-- pied-de-biche -->
+            🔥 <!-- chalumeau -->
+        </div>
 
     </div>
 
@@ -210,4 +226,3 @@ function retour() {
 
 </body>
 </html>
-
