@@ -6,6 +6,7 @@
 <title>Vision Occulte</title>
 
 <style>
+/* === FOND VOYANCE === */
 body {
     margin: 0;
     height: 100vh;
@@ -15,26 +16,44 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
     background:
-        radial-gradient(circle at center, rgba(255,215,0,0.18), transparent 55%),
+        radial-gradient(circle at center, rgba(255,215,0,0.28), transparent 50%),
         repeating-radial-gradient(
             circle at center,
-            rgba(255,215,0,0.14) 0px,
-            rgba(255,215,0,0.14) 1px,
-            transparent 2px,
-            transparent 38px
+            rgba(255,215,0,0.22) 0px,
+            rgba(255,215,0,0.22) 2px,
+            transparent 4px,
+            transparent 32px
         ),
-        radial-gradient(circle at top, #3a0ca3, #10002b 70%);
+        radial-gradient(circle at top, #4b1fa6, #14001f 75%);
+}
+
+/* GLYPHES VOYANCE */
+body::before {
+    content: "𓂀 ✶ ☽ ✶ 𓂀 ✶ ☽ ✶ 𓂀";
+    position: fixed;
+    inset: 0;
+    font-size: 3.8rem;
+    opacity: 0.18;
+    color: gold;
+    text-shadow: 0 0 12px rgba(255,215,0,0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    pointer-events: none;
 }
 
 /* ÉTOILES */
 .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
+    width: 3px;
+    height: 3px;
     background: gold;
     border-radius: 50%;
-    animation: twinkle 3.5s infinite;
+    box-shadow: 0 0 6px gold;
+    animation: twinkle 2.8s infinite;
 }
 @keyframes twinkle {
     0%,100% { opacity: 0; }
@@ -95,7 +114,7 @@ button {
     height: 420px;
 }
 
-/* COFFRE CENTRÉ */
+/* COFFRE */
 .chest {
     position: absolute;
     left: 50%;
@@ -104,23 +123,24 @@ button {
     font-size: 5rem;
 }
 
-/* COURONNE AU-DESSUS DU COFFRE */
+/* COURONNE / COLÈRE */
 .crown {
     position: absolute;
     left: 50%;
     top: 25%;
     transform: translateX(-50%);
-    font-size: 2.5rem;
-    text-shadow: 0 0 10px gold;
+    font-size: 2.8rem;
+    text-shadow: 0 0 12px gold;
     animation: sparkle 2s infinite alternate;
 }
+
 @keyframes sparkle {
     0% { transform: translateX(-50%) scale(1); opacity: 0.7; }
-    50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+    50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
     100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
 }
 
-/* OUTILS AU SOL */
+/* OUTILS */
 .tools {
     position: absolute;
     left: 50%;
@@ -140,7 +160,7 @@ button {
     animation: escapeLeft 6s infinite linear;
 }
 
-/* SAC D'ARGENT */
+/* SAC */
 .bag {
     position: absolute;
     font-size: 2.5rem;
@@ -175,7 +195,7 @@ button {
 <body>
 
 <script>
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 140; i++) {
     const s = document.createElement("div");
     s.className = "star";
     s.style.top = Math.random()*100+"%";
@@ -203,7 +223,6 @@ for (let i = 0; i < 80; i++) {
 <div id="animation">
     <div class="scene">
 
-        <!-- PERSONNAGE QUI S'ENFUIT -->
         <div class="thief">
             🏃‍♂️
             <div class="bag">💰</div>
@@ -212,18 +231,12 @@ for (let i = 0; i < 80; i++) {
             <div class="money">💸</div>
         </div>
 
-        <!-- COURONNE -->
-        <div class="crown">👑</div>
-
-        <!-- COFFRE -->
+        <div class="crown" id="crown">👑</div>
         <div class="chest">🧰</div>
 
-        <!-- OUTILS -->
         <div class="tools">
-            🛠️
-            🔥
+            🛠️ 🔥
         </div>
-
     </div>
 
     <br>
@@ -237,13 +250,22 @@ function verifier() {
         animation.style.display = "flex";
     }
 }
+
 function retour() {
     animation.style.display = "none";
     login.style.display = "flex";
     champ.value = "";
 }
+
+/* ALTERNANCE COURONNE / COLÈRE */
+const crown = document.getElementById("crown");
+let angry = false;
+
+setInterval(() => {
+    angry = !angry;
+    crown.textContent = angry ? "😡" : "👑";
+}, 1800);
 </script>
 
 </body>
 </html>
-
